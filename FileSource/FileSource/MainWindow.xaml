@@ -1,0 +1,55 @@
+﻿<Window x:Class="FileSource.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileSource"
+        xmlns:Views="clr-namespace:FileSource.Views"
+        xmlns:TabcontrolResources ="clr-namespace:Sinsegye.Ide.Resources.Controls.Ide;assembly=Sinsegye.Ide.Resources"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800"
+         WindowState="Maximized">
+
+    <Window.DataContext>
+        <local:MainWindowsModel></local:MainWindowsModel>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu >
+            <MenuItem Header="VISION">
+                <MenuItem Header="New FileSource" Command="{Binding ReNameCommand}"/>
+            </MenuItem>
+        </Menu>
+        <!-- TabControl 用于包含多个选项卡 -->
+        <TabControl Grid.Row="1" ItemsSource="{Binding FileSourceDatas}" SelectedItem="{Binding SelectedItemFileSourceDatas}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TabStripPlacement="Left" Margin="10,10,10,50">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="Transparent" Margin="0" SnapsToDevicePixels="True" MinWidth="60">
+                        <StackPanel>
+                            <Label Content="{Binding Name}"></Label>
+                            <Label FontSize="10" Content="{Binding TargetId}"></Label>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding View}" ></ContentControl>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+            <!-- 添加右键菜单 --><!--
+            <TabControl.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete Tab"
+                      Command="{Binding DelectTagCommand}"
+                      CommandParameter="{Binding}"
+                    />
+                </ContextMenu>
+            </TabControl.ContextMenu>-->
+        </TabControl>
+    </Grid>
+</Window>

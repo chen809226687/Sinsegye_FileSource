@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\filesources.png" />
+    <None Remove="Resources\播放.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\filesources.png" />
+    <Resource Include="Resources\播放.png" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Resource Include="Resources\暂停.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Package\" />
+    <Folder Include="Protos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="sinsegye.acpsharp" Version="0.0.2.7-rc3" />
+    <PackageReference Include="SSH.NET" Version="2024.2.0" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Sinsegye.Ide.Resources">
+      <HintPath>Package\Sinsegye.Ide.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Sinsegye.Ide.Utilities">
+      <HintPath>Package\Sinsegye.Ide.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Configs\SSHConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

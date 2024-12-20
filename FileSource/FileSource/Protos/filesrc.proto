@@ -1,0 +1,18 @@
+syntax = "proto3";
+package filesrc;
+option go_package = "filesrc";
+option java_package = "filesrc";
+option csharp_namespace = "filesrc";
+
+message FileSrcUpdateReq {
+    repeated string dirpath =1;
+}
+
+message FileSrcOperationReq {
+    string objId=1;
+}
+
+message FileSrcResp {
+    bool result=1;
+    string errMessage=2;
+}

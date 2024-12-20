@@ -1,0 +1,31 @@
+﻿<Window x:Class="FileSource.Views.ReName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileSource.Views"
+        mc:Ignorable="d"
+        Title="ReName" Height="200" Width="300"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    
+    
+    <Grid>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                <Label>Name:</Label>
+                <TextBox x:Name="MyText" Width="150" FontSize="18" Height="25" Text="{Binding NewTabName}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                <Label>TargetId:</Label>
+                <TextBox  Width="150" FontSize="18" Height="25" Text="{Binding TargetId}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                <Button Content="确认" Width="60" Height="20" 
+                Command="{Binding ConfirmCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Button Margin="10" Content="取消" Width="60" Height="20" 
+                 Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
